@@ -11,6 +11,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+
+$sql = "SELECT * from menu";
+$result = $conn->query($sql);
+
+if ($result->num_rows <= 0) {
+  die("<p>No Items in Stock</p>");
+}
 ?>
 
 <html>
@@ -23,17 +30,10 @@ if ($conn->connect_error) {
 <td>Item</td><td>Quantity</td><td>Unti Price</td>
 </tr>
 <?php
-$sql = "SELECT * from menu";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>$row[item]</td><td>$row[quantity]</td><td>$row[price]</td>";
-    echo "</tr>";
-  }
-} else {
-  echo "0 Items";
+while($row = $result->fetch_assoc()) {
+  echo "<tr>";
+  echo "<td>$row[item]</td><td>$row[quantity]</td><td>$row[price]</td>";
+  echo "</tr>";
 }
 ?>
 <table>
