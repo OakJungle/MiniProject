@@ -11,31 +11,30 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 
-if($_POST["type"]=="add"){
-$a=$_POST['item'];
-$b=$_POST['quantity'];
-$c=$_POST['price'];
-$sql = "INSERT INTO menu values('$a', $b, $c)";
+$item=$_POST['item'];
+$quantity=$_POST['quantity'];
+$price=$_POST['price'];
 
-if ($conn->query($sql) === TRUE) {
-  echo "Item Added";
+$result = $conn->query("SELECT item FROM menu WHERE item='$item'");
+$row = $result->fetch_assoc();
+$is_item=(bool)$row;
+if($is_item){
+  $update_query = "UPDATE menu set quantity=quantity+$quantity, price=$price where item='$item'";
+
+  if ($conn->query($update_query) === TRUE) {
+    echo "Updated Item in Stock";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+}
+else{
+$add_query = "INSERT INTO menu values('$item', $quantity, $price)";
+
+if ($conn->query($add_query) === TRUE) {
+  echo "Added Item to Stock";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }
-
-if ($_POST["type"]=="sell"){
-$item=$_POST['item'];
-$quantity=$_POST['quantity'];
-
-$sql = "UPDATE menu SET quantity=quantity-$quantity WHERE item='$item'";
-if ($conn->query($sql) === TRUE) {
-  echo "Record deleted successfully";
-} else {
-  echo "Error deleting record: " . $conn->error;
-}
-}
-
-
+?>

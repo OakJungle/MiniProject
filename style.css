@@ -1,0 +1,7 @@
+.bill-table, .bill-table td, .bill-table tr{
+    border:dashed ;
+    border: 1;
+    border-collapse: collapse;
+    border-width: 1;
+    text-align: center;
+}

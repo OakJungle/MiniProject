@@ -1,6 +1,3 @@
-<html>
-<body>
-</php
 <?php
 $servername = "localhost";
 $username = "root";
@@ -14,19 +11,31 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+?>
 
-
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table class="bill-table">
+<tr>
+<td>Item</td><td>Quantity</td><td>Unti Price</td>
+</tr>
+<?php
 $sql = "SELECT * from menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-    echo "item: " . $row["item"]. "- Quantity: " . $row["quantity"]. "price: " . $row["price"]. "<br>";
+    echo "<tr>";
+    echo "<td>$row[item]</td><td>$row[quantity]</td><td>$row[price]</td>";
+    echo "</tr>";
   }
 } else {
-  echo "0 results";
+  echo "0 Items";
 }
 ?>
+<table>
 </body>
 </html>
