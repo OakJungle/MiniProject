@@ -1,9 +1,55 @@
 <html>
+    <head>
+        <style>
+body{
+    background-color: #333;
+}
+.main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-align: center;
+    font-size: 100%;
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+    border-radius: 5px;
+}
+
+.button-div:hover {
+    background-color: #2980b9;
+}
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+        </style>
+    </head>
 <body>
-    <center>
-    <a href="add.html">Add item</a><br>
-    <a href="sell.php">Sell item</a><br>
-    <a href="stock.php">stock</a>
-    </center>
+    <header>
+        <h1>Canten</h1>
+    </header>
+    <div class="main-div">
+    <div class="button-div">
+        <a class="button" href="add.html">Add item</a><br>
+    </div>
+    <div class="button-div">
+        <a class="button" href="sell.php">Sell item</a><br>
+    </div>
+    <div class="button-div">
+        <a class="button" href="stock.php">stock</a>
+    </div>
+    </div>
 </body>
 </html>
