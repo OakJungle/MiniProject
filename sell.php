@@ -33,9 +33,9 @@ if ($result->num_rows <= 0) {
 
 while($row = $result->fetch_assoc()) {
   echo "<tr>
-  <td><input type='checkbox' id='item' name='item[]' value=$row[item]>$row[item]</td>
-  <td><input type=number id='quantity' name='quantity[]' min=1 max=$row[quantity]></td>
-  <td><p value=$row[price]>$row[price]</td></tr>";
+  <td>$row[item]</td>
+  <td><input type=number id='quantity' name='quantity[$row[item]]' min=0 max=$row[quantity]></td>
+  <td>$row[price]</td></tr>";
 }
 ?>
   <tr>
