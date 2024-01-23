@@ -30,12 +30,17 @@ if (!$items){
 <?php
 $total=0;
 foreach ($items as $item => $quantity) {
-  $price_raw=$conn->query("select price from menu where item='$item'");
+  $result_raw=$conn->query("select price, quantity from menu where item='$item'");
 
-  $price=$price_raw->fetch_assoc();
-  echo "<tr><td>$item</td><td>$quantity</td><td>$price[price]</td><td>".($price['price'])*(int)$quantity."</td></tr>";
-  $total+=$price['price']*(int)$quantity;
-  $conn->query("update menu set quantity=quantity-$quantity where item='$item'");
+  $result=$result_raw->fetch_assoc();
+  echo "<tr><td>$item</td><td>$quantity</td><td>$result[price]</td><td>".($result['price'])*(int)$quantity."</td></tr>";
+  $total+=$result['price']*(int)$quantity;
+  if (($result['quantity']-(int)$quantity)<=0){
+    $conn->query("delete from menu where item='$item'");
+  }
+  else{
+    $conn->query("update menu set quantity=quantity-$quantity where item='$item'");
+  }
 }
 echo" <tr><td colspan=3>Total</td><td>$total</td></tr>";
 ?> 
