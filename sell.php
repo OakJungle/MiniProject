@@ -20,7 +20,7 @@ if ($result->num_rows <= 0) {
 ?>
 
 <html>
-<body>
+<body style="background-color:orange;">
 <form method="get" action="bill.php">
 <input type="text" value="sell" name="type" style="display: none;">
 <table id="item-menu">

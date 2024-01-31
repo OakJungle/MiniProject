@@ -24,7 +24,7 @@ if ($result->num_rows <= 0) {
 <head>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:orange;"><center>
 <table class="bill-table">
 <tr>
 <td>Item</td><td>Quantity</td><td>Unti Price</td>
@@ -36,6 +36,6 @@ while($row = $result->fetch_assoc()) {
   echo "</tr>";
 }
 ?>
-<table>
+<table></center>
 </body>
 </html>

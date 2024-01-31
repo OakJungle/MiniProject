@@ -22,7 +22,7 @@ if (!$items){
 <head>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:orange;"><center>
 <table class="bill-table">
 <tr>
 <td>Item</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
@@ -44,6 +44,6 @@ foreach ($items as $item => $quantity) {
 }
 echo" <tr><td colspan=3>Total</td><td>$total</td></tr>";
 ?> 
-</table>
+</table></center>
 </body>
 </html>
