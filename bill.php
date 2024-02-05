@@ -21,9 +21,42 @@ if (!$items){
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
+<style>
+  body{
+    text-align: center;
+    background: radial-gradient(white, skyblue);
+    /* background-repeat: no-repeat; */
+    background-size: 100;
+  
+  }
+.main{
+    border-color: blue;
+    border-style: solid;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+center{
+  padding-bottom: 5px;
+}
+@media print {
+  body {
+    visibility: hidden;
+  }
+  .main {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+</style>
 </head>
-<body style="background-color:orange;"><center>
-<table class="bill-table">
+<body><center>
+  <div class="main">
+<table border="1" class="bill-table">
+<h3>CANTEEN</h3>
+<h4>NEAR PERIYA BUS STOP<h4>
 <tr>
 <td>Item</td><td>Quantity</td><td>Unit Price</td><td>Total Price</td>
 </tr>
@@ -44,6 +77,12 @@ foreach ($items as $item => $quantity) {
 }
 echo" <tr><td colspan=3>Total</td><td>$total</td></tr>";
 ?> 
-</table></center>
+
+</table>
+<p>Thank you<br> Hope you Come Back Soon</p>
+</center>
+<div>
+<button onclick="window.print()">Print this page</button>
+<br><input type="button" value="Back" onclick="window.location.href = 'index.html';">
 </body>
 </html>

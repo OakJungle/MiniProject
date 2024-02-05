@@ -22,10 +22,19 @@ if ($result->num_rows <= 0) {
 
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+<style>
+body{
+  background-image: url("10099.jpg");
+              background-repeat: no-repeat;
+            background-size: cover;
+}
+</style>
+
 </head>
-<body style="background-color:orange;"><center>
-<table class="bill-table">
+<body>
+<center>
+<table border="1"class="bill-table">
 <tr>
 <td>Item</td><td>Quantity</td><td>Unti Price</td>
 </tr>
@@ -36,6 +45,8 @@ while($row = $result->fetch_assoc()) {
   echo "</tr>";
 }
 ?>
-<table></center>
+<table>
+<br><input type="button" value="Back" onclick="window.location.href = 'index.html';">
+</center>
 </body>
 </html>

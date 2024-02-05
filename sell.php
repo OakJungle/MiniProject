@@ -20,14 +20,25 @@ if ($result->num_rows <= 0) {
 ?>
 
 <html>
-<body style="background-color:orange;">
+<head>
+  <style>
+    body{
+      background-image: url("https://images.slurrp.com/prodarticles/bmgl61rn2ge.webp?impolicy=slurrp-20210601&width=1200&height=900");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<center >
 <form method="get" action="bill.php">
 <input type="text" value="sell" name="type" style="display: none;">
-<table id="item-menu">
+<table id="item-menu" class="input">
   <tr>
-      <td>Item name:</td>
-      <td>Item Quantity:</td>
-      <td>Price</td>
+      <td style="">Item Name:</td>
+      <td >Item Quantity:</td> 
+      <td >Price</td>
   </tr>
 <?php
 
@@ -39,9 +50,11 @@ while($row = $result->fetch_assoc()) {
 }
 ?>
   <tr>
-  <td colspan="3"><input type="submit" value="buy"name="submit"></td>
+  <td colspan="2"><input type="reset" value="clear">
+  <input type="button" value="Back" onclick="window.location.href = 'index.html';"></td>
+  <td><input type="submit" value="buy" name="submit"></td>
   </tr>
 </table>
-</form>
+</form></center>
 </body>
 </html>

@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<body>
+    <style>
+        body{
+            background-image: url("https://www.assamicaagro.in/cdn/shop/articles/Untitled_design_26_1200x1200.png?v=1592799889");
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        .main-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            /* height: 100vh; */
+        }
+        
+</style>
+        <link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Item</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color:orange;"><center><h4>
+<body></body><center>
     <form method="post" action="db.php">
-        <table>
+        <table class="input">
             <tr>
                 <td>Add Item:</td>
                 <td><input type="text" name="item"></td>
@@ -22,9 +42,9 @@
                 <td><input type="number" name="quantity"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" name="submit"></td>
+                <td colspan="2"><input type="submit" name="submit" value="submit"></td>
             </tr>
         </table>
-    </form></h4></center>
+    </form></center>
 </body>
 </html>

@@ -15,6 +15,15 @@ if ($conn->connect_error) {
 $item=$_POST['item'];
 $quantity=$_POST['quantity'];
 $price=$_POST['price'];
+if(!$item){
+die("Enter Item Name");
+}
+if(!$price){
+die("Enter Item Price");
+}
+if(!$quantity){
+die("Enter Item Quantity");
+}
 
 $result = $conn->query("SELECT item FROM menu WHERE item='$item'");
 $row = $result->fetch_assoc();
@@ -38,3 +47,5 @@ if ($conn->query($add_query) === TRUE) {
 }
 }
 ?>
+<br><input type="button" value="Back" onclick="window.location.href = 'index.html';">
+
